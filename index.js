@@ -114,3 +114,23 @@ buttonEl.addEventListener("click", () => {
     character11 +
     character12;
 });
+
+copyEl.addEventListener("click", () => {
+  const text = document.getElementById("password-box").innerText;
+
+  // Create a temporary textarea element
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+
+  // Select the text
+  textarea.select();
+  textarea.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text to the clipboard
+  document.execCommand("copy");
+
+  // Remove the temporary textarea
+  document.body.removeChild(textarea);
+  console.log(passwordEl.textContent);
+});
